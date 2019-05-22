@@ -4,7 +4,7 @@
       <div class="input-group">
           <input type="email" name="login_email" class="form-control" placeholder="Username or email" formControlName="email">
       </div>
-      <div [hidden]="warEmail=='hidd'" class="alert alert-danger">
+      <div [hidden]="warEmail=='hidd'" class="alert alert-danger myalert">
         Username or email is required!
       </div>
   </div>
@@ -13,7 +13,7 @@
       <div class="input-group">
           <input type="password" name="login_password" class="form-control" placeholder="Password" formControlName="password">
       </div>
-      <div [hidden]="warPass=='hidd'" class="alert alert-danger">
+      <div [hidden]="warPass=='hidd'" class="alert alert-danger myalert">
         Password is required!
       </div>
   </div>
@@ -22,7 +22,7 @@
       <input type="checkbox" id="rememberMe" formControlName="check">
       <label for="rememberMe" class ="mx-3">Agree to terms</label>
       <a href="#" class="pull-left">Forgot password?</a>
-      <div [hidden]="warTerm=='hidd'" class="alert alert-danger">
+      <div [hidden]="warTerm=='hidd'" class="alert alert-danger myalert">
           Accept the terms!
       </div>
   </div>  
