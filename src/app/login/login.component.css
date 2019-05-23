@@ -1,4 +1,7 @@
 .myalert{
     /*height: 20px;*/
-    padding: 5px;
+    padding: 0px 0px 0px 5px;
+    position: absolute;
+    font-size: 12px;
+ 
 }
