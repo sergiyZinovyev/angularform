@@ -7,18 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   visLogReg: string = "log";
-  btnLog: string = 'active';
-  btnReg: string = '';
+  btnLog: string = 'btn-info';
+  btnReg: string = 'btn-outline-info';
 
   myToggle(name: string):void{
     this.visLogReg = name;
     if (name == "log"){
-      this.btnLog = 'active';
-      this.btnReg = ''
+      this.btnLog = 'btn-info';
+      this.btnReg = 'btn-outline-info'
     }
     else{
-      this.btnLog = '';
-      this.btnReg = 'active'
+      this.btnLog = 'btn-outline-info';
+      this.btnReg = 'btn-info'
     }
   }
 
