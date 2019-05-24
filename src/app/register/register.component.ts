@@ -17,6 +17,7 @@ function passwordConfirming(c: AbstractControl): any {
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
 
   warUsername: string = 'hidd';
@@ -37,8 +38,9 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.registerForm.controls['password'].valueChanges.subscribe((value) => this.registerForm.controls['confirmPassword'].setValue('')) 
   }
-
+ 
   get username() {return this.registerForm.get('username')}
   get fullname() {return this.registerForm.get('fullname')}
   get email() {return this.registerForm.get('email')}
@@ -46,12 +48,16 @@ export class RegisterComponent implements OnInit {
   get confirmPassword() {return this.registerForm.get('confirmPassword')}
 
 
-  /*confirmPasswordValidator(control: FormControl): {[s:string]:boolean}{ 
-    if(control.value != this.password.value){
+  /*confirmPasswordValidator(control: FormControl): {[s:string]:boolean}{
+
+    if(control.value===this.registerForm.get('password').value){
         return {"confirmPassword": true};
     }
+
     return null;
   }*/
+
+
 
   onSubmit() {
     if(this.username.valid){this.warUsername = "hidd"}
@@ -61,13 +67,23 @@ export class RegisterComponent implements OnInit {
     else{this.warFullname = "vis";}
 
     if(this.email.valid){this.warEmail = "hidd"}
-    else{this.warEmail = "vis";}
+    else{
+      this.registerForm.controls['email'].setValue('');
+      this.warEmail = "vis";
+    }
 
     if(this.password.valid){this.warPass = "hidd"}
-    else{this.warPass = "vis";}
+    else{
+      this.registerForm.controls['password'].setValue('');
+      this.registerForm.controls['confirmPassword'].setValue('');
+      this.warPass = "vis";
+    }
 
     if(this.confirmPassword.valid){this.warConfirmPassword = "hidd"}
-    else{this.warConfirmPassword = "vis";}
+    else{
+      this.registerForm.controls['confirmPassword'].setValue('');
+      this.warConfirmPassword = "vis";
+    }
 
     if(this.registerForm.valid){console.log(this.registerForm.value);}
   }
